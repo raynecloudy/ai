@@ -1,5 +1,5 @@
 var
-updata = 2;
+updata = 0;
 data = [
     ["clothing", ["shopping", "clothing"]],
     ["clothes", ["shopping", "clothing"]],
@@ -325,8 +325,8 @@ footer span {
 </style>
 `;
 document.body.innerHTML = `
-<div class="print"><h1>artificial idiot results</h1><p>artificial idiot is a program by qwertyy. they are viewable at https://github.com/qwertyytheartist.</p><span>prompt:</span></div>
-<div id="header"><p class="dont-print">artificial idiot<a class="header-button" href="https://github.com/qwertyytheartist/artificial-idiot">github</a><a class="header-button" href="https://github.com/qwertyytheartist">creator</a></p></div>
+<div class="print"><h1>artificial idiot results</h1><p>artificial idiot is a program by qwertyy. they are viewable at https://github.com/qwertyy-dev.</p><span>prompt:</span></div>
+<div id="header"><p class="dont-print">artificial idiot<a class="header-button" href="https://github.com/qwertyy-dev/ai">github</a><a class="header-button" href="https://github.com/qwertyy-dev">creator</a></p></div>
 <content>
 <div id="prompt-div">
 <textarea id="userinput"></textarea>
@@ -338,7 +338,7 @@ document.body.innerHTML = `
 <button onclick="print();" class="dont-print">print</button>
 </div>
 </content>
-<footer class="dont-print"><a href="https://github.com/qwertyytheartist/artificial-idiot"><img id="github-link" src="https://raw.githubusercontent.com/qwertyytheartist/artificial-idiot/main/github-mark-white.svg" alt="github"></a><span>updata ` + updata.toString() + '</span></footer>';
+<footer class="dont-print"><a href="https://github.com/qwertyy-dev/ai"><img id="github-link" src="github-mark-white.svg" alt="github"></a><span>updata ` + updata.toString() + '</span></footer>';
 
 var urlprompt = new URLSearchParams(window.location.search).get("prompt"),
 
