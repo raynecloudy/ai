@@ -355,7 +355,7 @@ if (window.location.href.includes("fun")) {
 	document.body.classList.add("fun");
 }
 
-inputelement.addEventListener("keyup", function(event) {
+inputelement.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         event.preventDefault();
 		inputelement.blur();
