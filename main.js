@@ -1,17 +1,17 @@
 var
 updata = 0;
 data = [
-    ["clothing", ["shopping", "clothing"]],
-    ["clothes", ["shopping", "clothing"]],
-    ["apple", ["food", "fruit"]],
-    ["orange", ["color", "warm color", "fruit", "orange", "fruit", "citrus", "danger"]],
-    ["banana", ["tropical", "food", "yellow", "berry", "fruit"]],
-    ["lime", ["fruit", "food", "green", "citrus"]],
-    ["blueberr", ["berry", "blue", "fruit"]], // no "y" for plural version
-    ["grape", ["berry", "fruit", "food"]],
-    ["lemon", ["citrus", "yellow", "food", "fruit"]],
-    ["pants", ["clothing", "shopping", "legs"]],
-    ["eat", ["food", "mouth"]],
+	["clothing", ["shopping", "clothing"]],
+	["clothes", ["shopping", "clothing"]],
+	["apple", ["food", "fruit"]],
+	["orange", ["color", "warm color", "fruit", "orange", "fruit", "citrus", "danger"]],
+	["banana", ["tropical", "food", "yellow", "berry", "fruit"]],
+	["lime", ["fruit", "food", "green", "citrus"]],
+	["blueberr", ["berry", "blue", "fruit"]], // no "y" for plural version
+	["grape", ["berry", "fruit", "food"]],
+	["lemon", ["citrus", "yellow", "food", "fruit"]],
+	["pants", ["clothing", "shopping", "legs"]],
+	["eat", ["food", "mouth"]],
 	["ate", ["food", "mouth"]],
 	["strawberr", ["food", "fruit", "red"]], // no "y" for plural version
 	["nice", ["positive"]],
@@ -354,6 +354,14 @@ if (urlprompt !== null) {
 if (window.location.href.includes("fun")) {
 	document.body.classList.add("fun");
 }
+
+inputelement.addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+		inputelement.blur();
+		ai();
+    }
+})
 
 function ai() {
 	if (inputelement.value === "") {
