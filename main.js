@@ -361,7 +361,11 @@ inputelement.addEventListener("keydown", function(event) {
 		inputelement.blur();
 		ai();
     }
-})
+});
+
+document.body.addEventListener("keydown", function(event) {
+	inputelement.focus();
+});
 
 function ai() {
 	if (inputelement.value === "") {
