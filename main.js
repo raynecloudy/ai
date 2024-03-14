@@ -314,6 +314,13 @@ footer span {
 		height: fit-content;
 		overflow: hidden;
 	}
+	.print {
+		color: #000000;
+		display: block;
+	}
+	content {
+		margin-top: 0;
+	}
 }
 </style>
 `;
@@ -331,7 +338,7 @@ document.body.innerHTML = `
 <button onclick="print();" class="dont-print">print</button>
 </div>
 </content>
-<footer class="dont-print"><a href="https://github.com/qwertyytheartist/artificial-idiot"><img id="github-link" src="https://raw.githubusercontent.com/qwertyytheartist/artificial-idiot/main/github-mark-white.svg" alt="github"></a><span>updata ` + updata.toString() + '</span><span><a>what is an updata?</a></span></footer>';
+<footer class="dont-print"><a href="https://github.com/qwertyytheartist/artificial-idiot"><img id="github-link" src="https://raw.githubusercontent.com/qwertyytheartist/artificial-idiot/main/github-mark-white.svg" alt="github"></a><span>updata ` + updata.toString() + '</span></footer>';
 
 var urlprompt = new URLSearchParams(window.location.search).get("prompt"),
 
@@ -365,6 +372,10 @@ function ai() {
 				resultsdiv.innerHTML += "<li>" + data[i][1].join("</li><li>") + "</li>";
 			}
 		}
+	}
+
+	if (!resultsdiv.innerHTML.includes("<li>")) {
+		resultsdiv.innerHTML = "<span>there's nothing here...</span>"
 	}
 
 	// thanks, stack overflow
