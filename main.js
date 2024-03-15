@@ -93,11 +93,13 @@ body {
 }
 h1 {
 	border-bottom: solid 1px var(--border);
-	margin-bottom: 10px;
+	margin: 0;
+	height: 38px;
 }
 #results {
-	height: calc(100vh - 300px);
+	height: 170px;
 	overflow-y: scroll;
+	margin: 10px 0;
 }
 textarea {
 	width: calc(100% - 26px);
@@ -155,12 +157,11 @@ content div {
 	background: var(--content-bg);
 	border-radius: 30px;
 	padding: 20px;
-	margin-top: 20px;
 }
 content {
 	display: block;
-	margin-top: calc(50vh - 140px);
-	min-height: calc(100vh - calc(50vh - 80px));
+	margin-top: calc(50vh - 160px);
+	min-height: calc(100vh - calc(50vh - 100px));
 }
 .print {
 	display: none;
@@ -207,13 +208,10 @@ footer span {
 	float: right;
 }
 #prompt-div {
-	display: block;
+	display: inline-block;
 }
 #results-div {
 	display: none;
-}
-.answer #results-div {
-	display: block;
 }
 @keyframes fun {
 	0% {
@@ -271,10 +269,30 @@ footer span {
 	border-radius: 10px;
 	background-color: var(--border);
 }
+content div div {
+	width: 100%;
+    padding: 0;
+    margin: 0;
+	border-radius: 0;
+}
+.answer content div div {
+	width: calc(50% - 10px);
+}
+.answer * #results-div {
+    float: right;
+	display: inline-block;
+}
 @media (max-width: 800px), (cursor: coarse) {
 	content div {
 		width: calc(100% - 40px);
 		margin-left: 0;
+		background-color: var(--content-bg);
+	}
+	content div div {
+		width: 100%!important;
+		display: block!important;
+		background-color: var(--content-bg);
+		border-radius: 30px;
 	}
 	#submit {
 		display: block;
@@ -285,6 +303,14 @@ footer span {
 	}
 	content {
 		margin-top: 70px;
+	}
+	.answer * #results-div {
+		float: initial;
+		display: block;
+	}
+	h1 {
+		height: initial;
+		margin-top: 20px;
 	}
 }
 @media print {
@@ -297,6 +323,10 @@ footer span {
 		margin-left: 0;
 		padding: 0;
 		background: #ffffff;
+	}
+	content div div {
+		width: 100%!important;
+		display: block!important;
 	}
 	.dont-print {
 		display: none;
@@ -329,6 +359,7 @@ document.body.innerHTML = `
 <div class="print"><h1>artificial idiot results</h1><p>artificial idiot is a program by qwertyy. they are viewable at https://github.com/qwertyy-dev.</p><span>prompt:</span></div>
 <div id="header"><p class="dont-print">artificial idiot<a class="header-button" href="https://github.com/qwertyy-dev/ai">github</a><a class="header-button" href="https://github.com/qwertyy-dev">creator</a></p></div>
 <content>
+<div>
 <div id="prompt-div">
 <textarea id="userinput"></textarea>
 <button id="submit" onclick="ai();" class="dont-print">submit</button>
@@ -337,6 +368,7 @@ document.body.innerHTML = `
 <h1 class="dont-print">results</h1>
 <ul id="results"></ul>
 <button onclick="print();" class="dont-print">print</button>
+</div>
 </div>
 </content>
 <footer class="dont-print"><a href="https://github.com/qwertyy-dev/ai"><img id="github-link" src="github-mark-white.svg" alt="github"></a><span>updata ` + updata.toString() + '</span></footer>';
