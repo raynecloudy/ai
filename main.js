@@ -60,17 +60,7 @@ data = [
 ],
 userinput = "",
 results = [];
-/*
-while (true) {
-    userinput = prompt("enter a word...");
-    if (userinput === "exit") {
-        break;
-    }
-    userinputmeaning = prompt("what does that mean?");
-    data.push(userinput);
-    datameaning.push(userinputmeaning);
-}
-*/
+
 document.head.innerHTML = `
 <title>artificial idiot</title>
 <meta charset="UTF-8">
@@ -82,7 +72,7 @@ html {
 	--bg: #202020;
 	--border: #898989;
 	--content-bg: #151515;
-	--red: #ff3a3a;
+	--red: #ff6c6c;
 }
 body {
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, Ubuntu, Arial, sans-serif, monospace;
@@ -144,13 +134,6 @@ a::selection {
 a::-moz-selection {
 	text-decoration: underline;
 }
-#offensive {
-	color: #0000;
-	font-weight: bold;
-}
-#offensive.show {
-	color: var(--red);
-}
 content div {
 	width: calc(60% - 40px);
 	margin-left: 20%;
@@ -209,9 +192,17 @@ footer span {
 }
 #prompt-div {
 	display: inline-block;
+	transition: 0.2s;
 }
 #results-div {
-	display: none;
+	width: 0%;
+	transition: 0.2s;
+	overflow: hidden;
+	display: inline-block;
+	float: right;
+}
+.answer content div div, .answer #results-div {
+	width: calc(50% - 10px);
 }
 @keyframes fun {
 	0% {
@@ -275,12 +266,8 @@ content div div {
     margin: 0;
 	border-radius: 0;
 }
-.answer content div div {
-	width: calc(50% - 10px);
-}
-.answer * #results-div {
-    float: right;
-	display: inline-block;
+.red {
+	color: var(--red);
 }
 @media (max-width: 800px), (cursor: coarse) {
 	content div {
@@ -290,9 +277,8 @@ content div div {
 	}
 	content div div {
 		width: 100%!important;
-		display: block!important;
+		display: block;
 		background-color: var(--content-bg);
-		border-radius: 30px;
 	}
 	#submit {
 		display: block;
@@ -304,6 +290,9 @@ content div div {
 	content {
 		margin-top: 70px;
 	}
+	#results-div {
+		display: none;
+	}
 	.answer * #results-div {
 		float: initial;
 		display: block;
@@ -313,7 +302,7 @@ content div div {
 		margin-top: 20px;
 	}
 }
-@media print {
+@media print, body.print {
 	body {
 		background: #ffffff;
 		color: #000000;
@@ -352,12 +341,18 @@ content div div {
 	content {
 		margin-top: 0;
 	}
+	.red {
+		color: inherit;
+	}
+	h1 {
+		margin-bottom: 10px;
+	}
 }
 </style>
 `;
 document.body.innerHTML = `
-<div class="print"><h1>artificial idiot results</h1><p>artificial idiot is a program by qwertyy. they are viewable at https://github.com/qwertyy-dev.</p><span>prompt:</span></div>
-<div id="header"><p class="dont-print">artificial idiot<a class="header-button" href="https://github.com/qwertyy-dev/ai">github</a><a class="header-button" href="https://github.com/qwertyy-dev">creator</a></p></div>
+<div class="print"><h1>artificial idiot results</h1><span>prompt:</span></div>
+<div id="header"><p class="dont-print">artificial idiot<a class="header-button" href="https://github.com/qwertyy-dev/ai/blob/main/README.md">about</a><a class="header-button" href="https://github.com/qwertyy-dev/ai">github</a><a class="header-button" href="https://github.com/qwertyy-dev">creator</a></p></div>
 <content>
 <div>
 <div id="prompt-div">
@@ -371,7 +366,7 @@ document.body.innerHTML = `
 </div>
 </div>
 </content>
-<footer class="dont-print"><a href="https://github.com/qwertyy-dev/ai"><img id="github-link" src="github-mark-white.svg" alt="github"></a><span>updata ` + updata.toString() + '</span></footer>';
+<footer class="dont-print"><a href="https://github.com/qwertyy-dev/ai"><img id="github-link" src="github-mark-white.svg" alt="github"></a><span>updata ` + updata.toString() + '</span><span>en (us)</span><span></span></footer>';
 
 var urlprompt = new URLSearchParams(window.location.search).get("prompt"),
 
@@ -383,7 +378,7 @@ if (urlprompt !== null) {
 	ai();
 }
 
-if (window.location.href.includes("fun")) {
+if (window.location.href.includes("#fun")) {
 	document.body.classList.add("fun");
 }
 
@@ -396,12 +391,15 @@ inputelement.addEventListener("keydown", function(event) {
 });
 
 document.body.addEventListener("keydown", function(event) {
-	inputelement.focus();
+	if (event.key !== "Enter") {
+		inputelement.focus();
+	}
 });
 
 function ai() {
 	if (inputelement.value === "") {
 		document.body.classList.remove("answer");
+		return;
 	} else {
 		document.body.classList.add("answer");
 	}
@@ -420,7 +418,7 @@ function ai() {
 	}
 
 	if (!resultsdiv.innerHTML.includes("<li>")) {
-		resultsdiv.innerHTML = "<span>there's nothing here...</span>"
+		resultsdiv.innerHTML = "<span class='red'>no results!</span>"
 	}
 
 	// thanks, stack overflow
