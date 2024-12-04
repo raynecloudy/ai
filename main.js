@@ -1,5 +1,4 @@
-var
-updata = 0;
+let updata = 0,
 data = [
 	["clothing", ["shopping", "clothing"]],
 	["clothes", ["shopping", "clothing"]],
@@ -368,7 +367,7 @@ document.body.innerHTML = `
 </content>
 <footer class="dont-print"><a href="https://github.com/qwertyy-dev/ai"><img id="github-link" src="github-mark-white.svg" alt="github"></a><span>updata ` + updata.toString() + '</span><span>en (us)</span><span></span></footer>';
 
-var urlprompt = new URLSearchParams(window.location.search).get("prompt"),
+let urlprompt = new URLSearchParams(window.location.search).get("prompt"),
 
 inputelement = document.getElementById("userinput");
 inputelement.focus();
@@ -398,7 +397,7 @@ document.body.addEventListener("keydown", function(event) {
 
 function ai() {
 	// thanks, stack overflow
-	var refresh = window.location.protocol + "//" + window.location.host + window.location.pathname + "?prompt=" + inputelement.value.replace(/\%/g, "%25").replace(/\`/g, "%60").replace(/\!/g, "%21").replace(/\@/g, "%40").replace(/\#/g, "%23").replace(/\$/g, "%24").replace(/\^/g, "%5E").replace(/\&/g, "%26").replace(/\(/g, "%28").replace(/\)/g, "%29").replace(/\=/g, "%3D").replace(/\+/g, "%2B").replace(/\{/g, "%7B").replace(/\}/g, "%7D").replace(/\[/g, "%5B").replace(/\]/g, "%5D").replace(/\|/g, "%7C").replace(/\\/g, "%5C").replace(/\:/g, "%3A").replace(/\;/g, "%3B").replace(/\'/g, "%27").replace(/\,/g, "%2C").replace(/\?/g, "%3F").replace(/\//g, "%2F");
+	let refresh = window.location.protocol + "//" + window.location.host + window.location.pathname + "?prompt=" + inputelement.value.replace(/\%/g, "%25").replace(/\`/g, "%60").replace(/\!/g, "%21").replace(/\@/g, "%40").replace(/\#/g, "%23").replace(/\$/g, "%24").replace(/\^/g, "%5E").replace(/\&/g, "%26").replace(/\(/g, "%28").replace(/\)/g, "%29").replace(/\=/g, "%3D").replace(/\+/g, "%2B").replace(/\{/g, "%7B").replace(/\}/g, "%7D").replace(/\[/g, "%5B").replace(/\]/g, "%5D").replace(/\|/g, "%7C").replace(/\\/g, "%5C").replace(/\:/g, "%3A").replace(/\;/g, "%3B").replace(/\'/g, "%27").replace(/\,/g, "%2C").replace(/\?/g, "%3F").replace(/\//g, "%2F");
 	window.history.pushState({ path: refresh }, "", refresh);
 
 	if (inputelement.value === "") {
@@ -408,15 +407,15 @@ function ai() {
 		document.body.classList.add("answer");
 	}
 
-	var
+	let
 	resultsdiv = document.getElementById("results"),
 	userinput = " " + inputelement.value.toLowerCase();
 
 	resultsdiv.innerHTML = "";
 
-	for (var i = 0; i < data.length; i++) {
+	for (let i = 0; i < data.length; i++) {
 		if (userinput.includes(data[i][0]+" ") || userinput.includes(" "+data[i][0]) || userinput === data[i][0]) {
-			for (var j = 0; j < userinput.split(data[i][0]).length-1; j++) {
+			for (let j = 0; j < userinput.split(data[i][0]).length-1; j++) {
 				resultsdiv.innerHTML += "<li>" + data[i][1].join("</li><li>") + "</li>";
 			}
 		}
