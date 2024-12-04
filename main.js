@@ -351,7 +351,7 @@ content div div {
 `;
 document.body.innerHTML = `
 <div class="print"><h1>artificial idiot results</h1><span>prompt:</span></div>
-<div id="header"><p class="dont-print">artificial idiot<a class="header-button" href="https://github.com/qwertyy-dev/ai/blob/main/README.md">about</a><a class="header-button" href="https://github.com/qwertyy-dev/ai">github</a><a class="header-button" href="https://github.com/qwertyy-dev">creator</a></p></div>
+<div id="header"><p class="dont-print">artificial idiot<a class="header-button" href="https://github.com/qwertyy-dev/ai/blob/main/README.md">about</a><a class="header-button" href="https://github.com/sillybreakfast/ai">github</a><a class="header-button" href="https://github.com/sillybreakfast">creator</a></p></div>
 <content>
 <div>
 <div id="prompt-div">

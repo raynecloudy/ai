@@ -1,4 +1,4 @@
 # artificial idiot
-this is a program created by qwertyy, someone with too much free time on their hands.
+this is a program created by breakfast, someone with too much free time on their hands.
 ## what makes it different?
-other ai's learn on their own, but _this_ one is so stupid that i have to tell it everything manually
+other AIs learn by scraping data from the web, so i'm attempting to make an artificial intelligence by training it off of data entered manually. contributions are much appreciated. and yes i'm aware this is a silly idea
