@@ -34,7 +34,7 @@ data = [
 	["meeting you", ["greeting"]],
 	["lol", ["positive"]],
 	["l.o.l", ["positive"]],
-	["qwertyy", ["creator"]],
+	["raynecloudy", ["creator"]],
 	["artificial idiot", ["me", "artificial intelligence"]],
 	["mister", ["male", "formal"]],
 	["mr", ["male", "formal"]],
@@ -351,7 +351,7 @@ content div div {
 `;
 document.body.innerHTML = `
 <div class="print"><h1>artificial idiot results</h1><span>prompt:</span></div>
-<div id="header"><p class="dont-print">artificial idiot<a class="header-button" href="https://github.com/qwertyy-dev/ai/blob/main/README.md">about</a><a class="header-button" href="https://github.com/sillybreakfast/ai">github</a><a class="header-button" href="https://github.com/sillybreakfast">creator</a></p></div>
+<div id="header"><p class="dont-print">artificial idiot<a class="header-button" href="https://github.com/raynecloudy/ai/blob/main/README.md">about</a><a class="header-button" href="https://github.com/raynecloudy/ai">github</a><a class="header-button" href="https://github.com/raynecloudy">creator</a></p></div>
 <content>
 <div>
 <div id="prompt-div">
@@ -365,7 +365,7 @@ document.body.innerHTML = `
 </div>
 </div>
 </content>
-<footer class="dont-print"><a href="https://github.com/qwertyy-dev/ai"><img id="github-link" src="github-mark-white.svg" alt="github"></a><span>updata ` + updata.toString() + '</span><span>en (us)</span><span></span></footer>';
+<footer class="dont-print"><a href="https://github.com/raynecloudy/ai"><img id="github-link" src="github-mark-white.svg" alt="github"></a><span>updata ` + updata.toString() + '</span><span>en (us)</span><span></span></footer>';
 
 let urlprompt = new URLSearchParams(window.location.search).get("prompt"),
 
